@@ -116,15 +116,6 @@ export function install(gitDir: string, huskyDir: string, isCI: boolean) {
     return
   }
 
-  if (path.join(userDir, '.git') !== gitDir) {
-    console.log(
-      `Expecting package.json to be at the same level as .git, skipping Git hooks installation`
-    )
-    console.log(`gitDir: ${gitDir}`)
-    console.log(`userDir: ${userDir}`)
-    return
-  }
-
   // Create hooks
   const hooks = getHooks(gitDir)
   const script = getScript(userDir)
